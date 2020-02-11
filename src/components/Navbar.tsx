@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import github from '../img/github-icon.svg'
 import logo from '../img/logo.svg'
 
-const Navbar = class extends React.Component {
+const Navbar = class extends Component<any, any> {
   constructor(props) {
     super(props)
     this.state = {
@@ -74,6 +74,9 @@ const Navbar = class extends React.Component {
               </Link>
               <Link className="navbar-item" to="/contact/examples">
                 Form Examples
+              </Link>
+              <Link className="navbar-item" to="/my-page">
+                My page
               </Link>
             </div>
             <div className="navbar-end has-text-centered">

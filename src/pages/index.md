@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Julia Coach
-image: /img/юлия-25-.jpg
+image: /img/julia.jpg
 heading: Coaching for you
 subheading: Join our community
 mainpitch:

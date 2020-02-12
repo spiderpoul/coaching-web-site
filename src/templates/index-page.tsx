@@ -8,10 +8,11 @@ import PainBlock from "../components/HomePage/PainBlock";
 import Waves from "../components/Waves";
 import Clouds from "../components/common/Clouds";
 import HowItWorks from "../components/HomePage/HowItWorks";
+import Objections from "../components/HomePage/Objections";
 
 const IndexPage = ({ data }) => {
     const {
-        frontmatter: { image, heading, pain, whyBlock, howItWorks }
+        frontmatter: { image, heading, pain, whyBlock, howItWorks, objections }
     } = data.markdownRemark;
 
     return (
@@ -44,13 +45,10 @@ const IndexPage = ({ data }) => {
                 image={howItWorks?.image}
             />
             <Waves fill="lilacEvening" reverse />
-            <PainBlock
-                painItems={whyBlock?.items}
-                title={whyBlock?.title}
-                buttonText={whyBlock?.action}
-                bgSection="white"
-                borderColor="purple"
-                bgColorItems="lilacMorning"
+            <Objections
+                items={objections?.items}
+                title={objections?.title}
+                buttonText={objections?.action}
             />
         </Layout>
     );
@@ -91,6 +89,13 @@ export const pageQuery = graphql`
                                 ...GatsbyImageSharpFluid
                             }
                         }
+                    }
+                }
+                objections {
+                    title
+                    items {
+                        title
+                        text
                     }
                 }
             }

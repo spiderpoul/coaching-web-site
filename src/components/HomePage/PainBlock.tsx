@@ -1,11 +1,11 @@
 import React from "react";
 import CardItem from "../common/CardItem";
 import styled from "styled-components";
-import TextBoxBorders from "../common/TextBoxBorders";
 import { WIDTH_CONTENT, COLORS, ColorsType } from "../../constants";
 import { Section } from "../common/commonStyled";
 import { FONT_GOTHAM_MEDIUM } from "../../styles/fonts";
 import Button from "../common/Button";
+import TitleSection from "../common/TitleSection";
 
 interface PainBlockProps {
     title: string;
@@ -32,11 +32,7 @@ const PainBlock: React.FC<PainBlockProps> = ({
             bgColor={bgSection !== "white" ? bgSection : undefined}
             padding={[42, 12]}
         >
-            {title && (
-                <TextBoxBorders color={bgColorItems} bgOpacity={0.3}>
-                    <TextContainer>{title}</TextContainer>
-                </TextBoxBorders>
-            )}
+            {title && <TitleSection title={title} color={bgColorItems} />}
             <PainContainer>
                 {painItems.map(item => (
                     <PainItem>

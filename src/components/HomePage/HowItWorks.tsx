@@ -2,10 +2,10 @@ import React from "react";
 import { Section } from "../common/commonStyled";
 import styled from "styled-components";
 import Button from "../common/Button";
-import TextBoxBorders from "../common/TextBoxBorders";
 import { COLORS, WIDTH_CONTENT } from "../../constants";
 import { FONT_GOTHAM_MEDIUM } from "../../styles/fonts";
 import { CompatibleImg } from "../Img";
+import TitleSection from "../common/TitleSection";
 
 interface HowItWorksProps {
     items: string[];
@@ -22,11 +22,7 @@ const HowItWorks: React.FC<HowItWorksProps> = ({
 }) => {
     return (
         <Section fullWidth bgColor="lilacEvening" padding={[42, 12]}>
-            {title && (
-                <TextBoxBorders color="white" bgOpacity={0.3}>
-                    <TextContainer>{title}</TextContainer>
-                </TextBoxBorders>
-            )}
+            {title && <TitleSection title={title} color="white" />}
             <Content>
                 <ImageContainer>
                     <CompatibleImg image={image} />

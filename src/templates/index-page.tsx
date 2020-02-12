@@ -7,10 +7,11 @@ import HomeHeader from "../components/HomePage/HomeHeader";
 import PainBlock from "../components/HomePage/PainBlock";
 import Waves from "../components/Waves";
 import Clouds from "../components/common/Clouds";
+import HowItWorks from "../components/HomePage/HowItWorks";
 
 const IndexPage = ({ data }) => {
     const {
-        frontmatter: { image, heading, pain, whyBlock }
+        frontmatter: { image, heading, pain, whyBlock, howItWorks }
     } = data.markdownRemark;
 
     return (
@@ -22,17 +23,34 @@ const IndexPage = ({ data }) => {
                 painItems={pain?.items}
                 title={pain?.title}
                 bgSection="cream"
-                borderColor="lilac"
+                borderColor="lilacDark"
                 bgColorItems="white"
                 image={<Clouds />}
+                buttonText={pain?.action}
             />
             <Waves fill="cream" />
             <PainBlock
                 painItems={whyBlock?.items}
                 title={whyBlock?.title}
+                buttonText={whyBlock?.action}
                 bgSection="white"
-                borderColor="lilac"
-                bgColorItems="lilacLight"
+                borderColor="purple"
+                bgColorItems="lilacMorning"
+            />
+            <HowItWorks
+                buttonText={howItWorks?.action}
+                items={howItWorks?.items}
+                title={howItWorks?.title}
+                image={howItWorks?.image}
+            />
+            <Waves fill="lilacEvening" reverse />
+            <PainBlock
+                painItems={whyBlock?.items}
+                title={whyBlock?.title}
+                buttonText={whyBlock?.action}
+                bgSection="white"
+                borderColor="purple"
+                bgColorItems="lilacMorning"
             />
         </Layout>
     );
@@ -56,10 +74,24 @@ export const pageQuery = graphql`
                 pain {
                     title
                     items
+                    action
                 }
                 whyBlock {
                     title
                     items
+                    action
+                }
+                howItWorks {
+                    title
+                    items
+                    action
+                    image {
+                        childImageSharp {
+                            fluid(maxWidth: 2048, quality: 100) {
+                                ...GatsbyImageSharpFluid
+                            }
+                        }
+                    }
                 }
             }
         }

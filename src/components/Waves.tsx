@@ -6,11 +6,12 @@ import styled from "styled-components";
 
 interface WavesProps {
     fill: ColorsType;
+    reverse?: boolean;
 }
 
-const Waves = ({ fill }) => {
+const Waves = ({ fill, reverse = false }) => {
     return (
-        <SectionStyled fullWidth>
+        <SectionStyled fullWidth reverse={reverse}>
             <SvgTop xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                 <path
                     fill={COLORS[fill]}
@@ -46,9 +47,11 @@ const Waves = ({ fill }) => {
     );
 };
 
-const SectionStyled = styled(Section)`
+const SectionStyled = styled(Section)<{ reverse: boolean }>`
     position: relative;
     margin-bottom: -150px;
+    overflow: hidden;
+    transform: ${({ reverse }) => (reverse ? "scale(-1, 1)" : "none")};
 `;
 
 const SvgTop = styled.svg`

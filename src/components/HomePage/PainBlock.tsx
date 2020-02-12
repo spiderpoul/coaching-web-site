@@ -5,6 +5,7 @@ import TextBoxBorders from "../common/TextBoxBorders";
 import { WIDTH_CONTENT, COLORS, ColorsType } from "../../constants";
 import { Section } from "../common/commonStyled";
 import { FONT_GOTHAM_MEDIUM } from "../../styles/fonts";
+import Button from "../common/Button";
 
 interface PainBlockProps {
     title: string;
@@ -13,6 +14,7 @@ interface PainBlockProps {
     bgColorItems: ColorsType;
     bgSection: ColorsType;
     image?: JSX.Element;
+    buttonText: string;
 }
 
 const PainBlock: React.FC<PainBlockProps> = ({
@@ -21,7 +23,8 @@ const PainBlock: React.FC<PainBlockProps> = ({
     borderColor: itemsColor,
     bgColorItems,
     bgSection,
-    image
+    image,
+    buttonText
 }) => {
     return (
         <Section
@@ -45,10 +48,17 @@ const PainBlock: React.FC<PainBlockProps> = ({
                     </PainItem>
                 ))}
             </PainContainer>
+            {/* <ButtonStyled bgColor={bgColorItems} borderColor={itemsColor}>
+                {buttonText}
+            </ButtonStyled> */}
             {image}
         </Section>
     );
 };
+
+const ButtonStyled = styled(Button)`
+    margin-top: 48px;
+`;
 
 const PainContainer = styled.div`
     display: flex;
@@ -69,7 +79,7 @@ const PainItem = styled.div`
 
 const TextContainer = styled.div`
     padding: 20px;
-    color: ${COLORS.lilac};
+    color: ${COLORS.lilacDark};
     font-family: ${FONT_GOTHAM_MEDIUM};
     font-size: 36px;
 `;

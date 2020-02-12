@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import { Parallax } from "react-scroll-parallax";
-import cloud from "../../img/home-page/cloud.svg";
+import cloud from "../../img/cloud.svg";
 import styled from "styled-components";
 
 const Clouds = () => {

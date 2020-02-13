@@ -3,6 +3,7 @@ export const WIDTH_CONTENT = `1350px`;
 export const COLORS = {
     cream: "#f1c8bc",
     white: "#FFFFFF",
+    black: "#535252",
     purple: "#A87996",
     lilacDark: "#441732",
     lilacMorning: "#F9E6F5",

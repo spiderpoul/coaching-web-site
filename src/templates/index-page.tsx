@@ -9,10 +9,19 @@ import Waves from "../components/Waves";
 import Clouds from "../components/common/Clouds";
 import HowItWorks from "../components/HomePage/HowItWorks";
 import Objections from "../components/HomePage/Objections";
+import About from "../components/HomePage/About";
 
 const IndexPage = ({ data }) => {
     const {
-        frontmatter: { image, heading, pain, whyBlock, howItWorks, objections }
+        frontmatter: {
+            image,
+            heading,
+            pain,
+            whyBlock,
+            howItWorks,
+            objections,
+            about
+        }
     } = data.markdownRemark;
 
     return (
@@ -49,6 +58,13 @@ const IndexPage = ({ data }) => {
                 items={objections?.items}
                 title={objections?.title}
                 buttonText={objections?.action}
+            />
+            <About
+                textItems={about?.textItems}
+                aboutTitle={about?.titleAbout}
+                image={about?.image}
+                quote={about?.quote}
+                title={about?.title}
             />
         </Layout>
     );
@@ -97,6 +113,19 @@ export const pageQuery = graphql`
                         title
                         text
                     }
+                }
+                about {
+                    title
+                    titleAbout
+                    textItems
+                    image {
+                        childImageSharp {
+                            fluid(maxWidth: 1024, quality: 100) {
+                                ...GatsbyImageSharpFluid
+                            }
+                        }
+                    }
+                    quote
                 }
             }
         }
